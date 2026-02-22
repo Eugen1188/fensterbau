@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Fensterbau
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
@@ -57,3 +58,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# fensterbau
+>>>>>>> 7c7490d4bcbff1d46f2f2c067c7d0485c550d7f3
