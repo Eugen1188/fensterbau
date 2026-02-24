@@ -1,0 +1,128 @@
+section {
+  .container {
+    display: flex;
+    gap: 40px;
+    margin: 0 auto;
+    .text-content {
+      flex: 1 1 500px;
+      position: relative;
+      .main-img-resp {
+        display: none;
+      }
+      .mobile-img {
+        position: absolute;
+        opacity: 0.1;
+        display: none;
+      }
+      p {
+        line-height: 1.6;
+        color: #333333;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        color: #0a4a8a;
+        margin-top: 30px;
+        margin-bottom: 12px;
+        font-size: 24px;
+      }
+
+      .product-list {
+        list-style: none;
+        padding: 0;
+        // margin: 10px 0 20px 0;
+
+        li {
+          position: relative;
+          padding-left: 25px;
+          margin-bottom: 12px;
+          font-weight: 500;
+
+          &::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #0a4a8a;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .image-content {
+      flex: 1 1 400px;
+      display: flex;
+      justify-content: flex-end;
+      .img-deskt {
+        width: 120%;
+        max-width: none;
+        border-radius: 10px;
+        object-fit: cover;
+        -webkit-mask-image: linear-gradient(
+          to left,
+          black 70%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to left, black 70%, transparent 100%);
+      }
+    }
+  }
+  .info-des {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    .mobile-img-cont {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100px;
+        -webkit-mask-image: linear-gradient(
+          to left,
+          black 70%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(to right, black 10%, transparent 100%);
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      .main-img-resp {
+        display: flex !important;
+        width: 100%;
+        border-radius: 24px;
+      }
+      .text-desktop {
+        display: none;
+      }
+      .mobile-img-cont {
+        display: flex;
+      }
+      .mobile-img {
+        display: flex;
+        position: absolute;
+        opacity: 0.1;
+      }
+      .image-content {
+        order: -1;
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+
+      .mobile-img-cont {
+        img {
+            width: 150% !important;
+        }
+      }
+    
+}
