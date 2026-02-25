@@ -98,11 +98,15 @@ header {
   width: 100% !important;
 }
 
-
-// @media (max-width: 900px) {
-//   header {
-//     nav {
-//       display: none;
-//     }
-//   }
-// }
+@media (max-width: 900px) {
+  header {
+    nav {
+      .logo {
+        width: 140px;
+      }
+      .links {
+        display: none;
+      }
+    }
+  }
+}

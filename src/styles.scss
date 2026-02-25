@@ -7,6 +7,15 @@
   --color-blue: #085da9b3;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter/Inter-VariableFont_opsz\,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 section {
   padding: 40px 40px;
 }
@@ -19,16 +28,16 @@ h2 {
   margin-bottom: 20px;
 }
 
-  .line-grey {
-    margin-bottom: 8px;
-    height: 2px;
-    background-color: #7d7e7e;
-    width: 100%;
-    border-radius: 0 100% 100% 0;
-    background: linear-gradient(
-      to right,
-      rgba(125, 126, 126, 0.3) 0%,
-      rgba(125, 126, 126, 1) 50%,
-      rgba(125, 126, 126, 0.3) 100%
-    );
-  }
+.line-grey {
+  margin-bottom: 8px;
+  height: 2px;
+  background-color: #7d7e7e;
+  width: 100%;
+  border-radius: 0 100% 100% 0;
+  background: linear-gradient(
+    to right,
+    rgba(125, 126, 126, 0.3) 0%,
+    rgba(125, 126, 126, 1) 50%,
+    rgba(125, 126, 126, 0.3) 100%
+  );
+}
