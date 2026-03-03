@@ -1,0 +1,51 @@
+<section class="contact-section">
+  <h2>Kontakt</h2>
+    <div class="line-grey"></div>
+
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <input
+        type="text"
+        placeholder="Vorname"
+        formControlName="firstName"
+        [class.invalid]="isInvalid('firstName')"
+      />
+
+      <input
+        type="text"
+        placeholder="Nachname"
+        formControlName="lastName"
+        [class.invalid]="isInvalid('lastName')"
+      />
+    </div>
+
+    <input
+      type="email"
+      placeholder="E-Mail"
+      formControlName="email"
+      [class.invalid]="isInvalid('email')"
+    />
+
+    <textarea
+      rows="5"
+      placeholder="Ihre Nachricht"
+      formControlName="message"
+      [class.invalid]="isInvalid('message')"
+    ></textarea>
+
+    <div class="bottom-row">
+      <button type="submit" [disabled]="loading">
+        {{ loading ? "Senden..." : "Senden" }}
+      </button>
+
+      <span class="error-msg" *ngIf="formError">
+        Bitte alle Felder korrekt ausfüllen.
+      </span>
+
+      <span class="success-msg" *ngIf="successMessage">
+        Nachricht erfolgreich verschickt.
+      </span>
+    </div>
+  </form>
+</section>

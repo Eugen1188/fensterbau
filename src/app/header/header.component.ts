@@ -11,9 +11,18 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   showMenu = false;
+  contactChoice = false;
 
   showMenuToggle() {
     this.showMenu = !this.showMenu;
   }
 
+  showContactChoiceToggle() {
+    this.contactChoice = !this.contactChoice;
+  }
+
+  closeAll() {
+  this.showMenu = false;
+  this.contactChoice = false;
+}
 }
