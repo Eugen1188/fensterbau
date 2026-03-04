@@ -1,51 +1,89 @@
-<section class="contact-section">
+<section class="contact-section" id="contact">
   <h2>Kontakt</h2>
-    <div class="line-grey"></div>
+  <div class="line-grey"></div>
 
+  <div class="contact-container">
 
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <div class="row">
+    <p class="contact-intro">
+      Sie haben Fragen oder möchten ein Angebot erhalten?
+      Schreiben Sie uns einfach über das Formular.
+      Wir melden uns schnellstmöglich bei Ihnen zurück.
+    </p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+      <div class="row">
+        <select formControlName="salutation">
+          <option value="">Anrede *</option>
+          <option value="Herr">Herr</option>
+          <option value="Frau">Frau</option>
+          <option value="Divers">Divers</option>
+        </select>
+
+        <input
+          type="text"
+          placeholder="Vorname *"
+          formControlName="firstName"
+          [class.invalid]="isInvalid('firstName')"
+        />
+      </div>
+
       <input
         type="text"
-        placeholder="Vorname"
-        formControlName="firstName"
-        [class.invalid]="isInvalid('firstName')"
-      />
-
-      <input
-        type="text"
-        placeholder="Nachname"
+        placeholder="Nachname *"
         formControlName="lastName"
         [class.invalid]="isInvalid('lastName')"
       />
-    </div>
 
-    <input
-      type="email"
-      placeholder="E-Mail"
-      formControlName="email"
-      [class.invalid]="isInvalid('email')"
-    />
+      <input
+        type="email"
+        placeholder="E-Mail *"
+        formControlName="email"
+        [class.invalid]="isInvalid('email')"
+      />
 
-    <textarea
-      rows="5"
-      placeholder="Ihre Nachricht"
-      formControlName="message"
-      [class.invalid]="isInvalid('message')"
-    ></textarea>
+      <input type="tel" placeholder="Telefon" formControlName="phone" />
 
-    <div class="bottom-row">
-      <button type="submit" [disabled]="loading">
-        {{ loading ? "Senden..." : "Senden" }}
-      </button>
+      <div class="row">
+        <input type="text" placeholder="Straße" formControlName="street" />
+        <input type="text" placeholder="Hausnummer" formControlName="houseNumber" />
+      </div>
 
-      <span class="error-msg" *ngIf="formError">
-        Bitte alle Felder korrekt ausfüllen.
-      </span>
+      <div class="row">
+        <input type="text" placeholder="PLZ" formControlName="zip" />
+        <input type="text" placeholder="Ort" formControlName="city" />
+      </div>
 
-      <span class="success-msg" *ngIf="successMessage">
-        Nachricht erfolgreich verschickt.
-      </span>
-    </div>
-  </form>
+      <textarea
+        rows="5"
+        placeholder="Ihre Nachricht *"
+        formControlName="message"
+        [class.invalid]="isInvalid('message')"
+      ></textarea>
+
+      <label class="privacy">
+        <input type="checkbox" formControlName="privacy" />
+        <span>
+          Ich habe die
+          <a routerLink="/privacy-policy">Datenschutzerklärung</a>
+          gelesen und akzeptiere sie. *
+        </span>
+      </label>
+
+      <div class="bottom-row">
+        <button type="submit" [disabled]="loading">
+          {{ loading ? "Senden..." : "Nachricht senden" }}
+        </button>
+
+        <span class="error-msg" *ngIf="formError">
+          Bitte alle Pflichtfelder ausfüllen.
+        </span>
+
+        <span class="success-msg" *ngIf="successMessage">
+          Nachricht erfolgreich verschickt.
+        </span>
+      </div>
+
+    </form>
+  </div>
 </section>

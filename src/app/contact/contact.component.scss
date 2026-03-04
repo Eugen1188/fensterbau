@@ -1,75 +1,111 @@
-.contact-section {
-  h2 {
-    margin-bottom: 30px;
+.contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  .contact-intro {
+    max-width: 700px;
+    margin: 0 auto 35px auto;
     text-align: center;
+    color: #445369;
+    line-height: 1.6;
+    font-size: 15px;
   }
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input.invalid,
+textarea.invalid {
+  border-color: red;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  background-color: #417cbc;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #3567a1;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 14px;
+}
+
+.success-msg {
+  color: green;
+  font-size: 14px;
+}
+
+.privacy {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.privacy input {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.privacy a {
+  color: #417cbc;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
   .row {
-    display: flex;
-    gap: 20px;
-
-    input {
-      flex: 1;
-    }
-  }
-
-  input, textarea {
-    padding: 14px 16px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    transition: 0.2s;
-
-    &:focus {
-      outline: none;
-      border-color: #6697d7;
-    }
-  }
-
-  .invalid {
-    border: 1px solid #e74c3c !important;
-    background: #fff5f5;
+    flex-direction: column;
   }
 
   .bottom-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  button {
-    padding: 12px 28px;
-    border: none;
-    border-radius: 12px;
-    background: #6697d7;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
-
-    &:hover {
-      background: #4f7fbd;
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  }
-
-  .error-msg {
-    color: #e74c3c;
-    font-size: 14px;
-  }
-
-  .success-msg {
-    color: #2ecc71;
-    font-size: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }

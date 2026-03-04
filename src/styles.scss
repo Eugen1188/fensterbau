@@ -2,6 +2,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Inter;
+  scroll-behavior:smooth;
+
 }
 
 :root {
@@ -10,7 +12,6 @@
 
 @font-face {
   font-family: "Inter";
-  /* use a relative path so that base-href is respected */
   src: url("assets/fonts/Inter/Inter-VariableFont_opsz-wght.ttf")
     format("truetype");
   font-weight: 100 900;
@@ -18,48 +19,22 @@
   font-display: swap;
 }
 
-      .tel-cont {
-        background-color: #0c153057;
-        border-radius: 14px;
-        padding: 10px 10px;
-        a {
-          color: white;
-          text-decoration: none;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-      }
-
-// @font-face {
-//   font-family: "Rubik";
-//   src: url("/fonts/Inter/Rubik/Rubik-VariableFont_wght.ttf")
-//     format("truetype");
-//   font-weight: 100 900;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//   font-family: "Exo2";
-//   src: url("/fonts/Inter/Exo_2/Exo2-VariableFont_wght.ttf")
-//     format("truetype");
-//   font-weight: 100 900;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//   font-family: "Bebas";
-//   src: url("/fonts/Inter/Bebas_Neue/BebasNeue-Regular.ttf")
-//     format("truetype");
-//   font-weight: 100 900;
-//   font-style: normal;
-//   font-display: swap;
-// }
+.tel-cont {
+  background-color: #0c153057;
+  border-radius: 14px;
+  padding: 10px 10px;
+  a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
 
 section {
   padding: 40px 40px;
+  width: 100%;
 }
 
 h2 {
