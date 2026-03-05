@@ -140,6 +140,9 @@ header {
       display: flex;
       gap: 24px;
       align-items: center;
+      img {
+        width: 50px;
+      }
       .tel-cont {
         background-color: #0c153057;
         border-radius: 14px;
@@ -227,7 +230,6 @@ header {
   visibility: visible;
 }
 
-
 .tel-choice-cont {
   position: absolute;
   top: 75px;
@@ -266,6 +268,7 @@ header {
     color: #2f4f88;
   }
 }
+
 
 @keyframes fadeSlideIn {
   from {
