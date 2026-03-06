@@ -97,9 +97,9 @@ header {
   }
   display: flex;
   height: 100vh;
-  background-image: url("../../assets/img/header_img.png");
+  background-image: url("../../assets/img/header_desktop.avif");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   flex-direction: column;
   overflow: hidden;
@@ -280,7 +280,7 @@ header {
 
 @media (max-width: 900px) {
   header {
-    background-image: url("../../assets/img/header_img_mobile.png");
+    background-image: url("../../assets/img/header_img_mobile.avif");
     background-position: bottom;
   }
 }
