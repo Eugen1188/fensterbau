@@ -25,6 +25,9 @@ header {
         gap: 8px;
         color: #4d6184;
         cursor: pointer;
+        span {
+          text-decoration: none;
+        }
       }
     }
     .nav-buttons-cont {
@@ -194,6 +197,7 @@ header {
   }
   h1 {
     font-size: 58px;
+    // font-size: clamp(24px, 3vw, 40px);
     color: rgb(255, 255, 255);
   }
   h2 {
