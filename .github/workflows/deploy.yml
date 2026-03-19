@@ -35,5 +35,11 @@ jobs:
       - name: Build auf Server hochladen
         run: |
           rsync -az --delete \
-          -e "ssh -p 22 -i ~/.ssh/id_ed25519" \
-          ./dist/fensterbau/browser/ root@178.104.47.231:/var/www/sites/info-jh/
+            -e "ssh -p 22 -i ~/.ssh/id_ed25519" \
+            ./dist/fensterbau/browser/ root@178.104.47.231:/var/www/sites/info-jh/
+
+      - name: PHP-Datei hochladen
+        run: |
+          rsync -az \
+            -e "ssh -p 22 -i ~/.ssh/id_ed25519" \
+            ./sendMail.php root@178.104.47.231:/var/www/sites/info-jh/
