@@ -42,4 +42,4 @@ jobs:
         run: |
           rsync -az \
             -e "ssh -p 22 -i ~/.ssh/id_ed25519" \
-            ./sendMail.php root@178.104.47.231:/var/www/sites/info-jh/
+            ./sendmail.php root@178.104.47.231:/var/www/sites/info-jh/
