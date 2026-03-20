@@ -2,12 +2,11 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
 
-header("Content-Type: application/json; charset=utf-8");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Type: application/json; charset=utf-8");
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
@@ -41,13 +40,11 @@ try {
     }
 
     $smtpPass = $config['brevo_smtp_pass'] ?? '';
-
     if (empty($smtpPass)) {
         throw new Exception('brevo_smtp_pass ist leer oder nicht gesetzt');
     }
 
     $mail = new PHPMailer(true);
-
     $mail->isSMTP();
     $mail->Host = 'smtp-relay.brevo.com';
     $mail->SMTPAuth = true;

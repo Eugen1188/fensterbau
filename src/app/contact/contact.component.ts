@@ -73,7 +73,7 @@ ${this.contactForm.value.message}
 `,
     };
 
-    this.http.post('https://ferchow-eugen.de/sendmail.php', formData).subscribe({
+    this.http.post('http://178.104.47.231:8080/sendmail.php', formData).subscribe({
       next: () => {
         this.loading = false;
         this.successMessage = true;
