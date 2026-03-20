@@ -20,3 +20,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 try {
     require __DIR__ . '/vendor/autoload.php';
     $config = require '/var/www/config/mail-config.php';
+
+}
