@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 try {
     require __DIR__ . '/vendor/autoload.php';
-    $config = require __DIR__ . '/mail-config.php';
+    $config = require '/var/www/config/mail-config.php';
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         http_response_code(405);
