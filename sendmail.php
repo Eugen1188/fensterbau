@@ -55,12 +55,6 @@ try {
     $mail->Password = $smtpPass;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
-
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-    $mail->Debugoutput = function($str, $level) {
-        error_log("PHPMailer [$level]: $str");
-    };
-
     $mail->CharSet = 'UTF-8';
 
     $mail->setFrom('kontakt@ferchow-eugen.de', 'Website Kontakt');
