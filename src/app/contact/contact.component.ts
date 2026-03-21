@@ -73,7 +73,7 @@ ${this.contactForm.value.message}
 `,
     };
 
-    this.http.post('https://www.info-jh.team/sendmail.php', formData).subscribe({
+    this.http.post('/mail/sendMail.php', formData).subscribe({
       next: () => {
         this.loading = false;
         this.successMessage = true;
