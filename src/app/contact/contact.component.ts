@@ -73,7 +73,7 @@ ${this.contactForm.value.message}
 `,
     };
 
-    this.http.post('/mail/sendMail.php', formData).subscribe({
+    this.http.post('/mail/sendmail.php', formData).subscribe({
       next: () => {
         this.loading = false;
         this.successMessage = true;
