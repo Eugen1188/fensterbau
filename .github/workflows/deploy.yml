@@ -43,3 +43,6 @@ jobs:
           rsync -az \
             -e "ssh -p 22 -i ~/.ssh/id_ed25519" \
             ./sendmail.php root@178.104.47.231:/var/www/sites/info-jh/
+
+      - name: Upload mail folder
+        run: rsync -avz src/mail/ user@server:/var/www/site/info-jh/mail/
