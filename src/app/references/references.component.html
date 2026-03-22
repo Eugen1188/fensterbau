@@ -13,7 +13,7 @@
         [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
       >
         <div class="slider-ele" *ngFor="let slide of slides">
-          <img *ngFor="let img of slide" [src]="img" />
+          <img *ngFor="let img of slide" [src]="img" [alt]="getImageAlt(img)" />
           <div class="before-after-cont" *ngIf="slide.length > 1">
             <svg
               width="55"

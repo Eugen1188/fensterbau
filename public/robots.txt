@@ -1,0 +1,13 @@
+# Allow all bots to crawl the website
+User-agent: *
+Allow: /
+
+# Disallow admin and private paths (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.info-jh.team/sitemap.xml
+
+# Crawl delay (optional, set to 1 second to be respectful)
+Crawl-delay: 1

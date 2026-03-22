@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -8,6 +8,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { MetaService } from '../services/meta.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,7 +16,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   contactForm: FormGroup;
 
   loading = false;
@@ -25,6 +26,7 @@ export class ContactComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
+    private metaService: MetaService,
   ) {
     this.contactForm = this.fb.group({
       salutation: ['', Validators.required],
@@ -38,6 +40,15 @@ export class ContactComponent {
       city: [''],
       message: ['', Validators.required],
       privacy: [false, Validators.requiredTrue],
+    });
+  }
+
+  ngOnInit(): void {
+    this.metaService.setMetaTags({
+      title: 'Kontakt & Angebot | Info JH',
+      description: 'Kontaktieren Sie uns für eine kostenlose Beratung und Fenster-Angebot.',
+      keywords: 'Kontakt, Fenster Angebot, Beratung, Kontaktformular, Fenster anfrage',
+      url: 'https://www.info-jh.team/#contact'
     });
   }
 
