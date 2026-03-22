@@ -33,12 +33,26 @@ try {
     $raw = file_get_contents("php://input");
     $data = json_decode($raw);
 
-    if (!$data || !isset($data->email, $data->name, $data->message)) {
+    if (
+        !$data ||
+        !isset($data->email, $data->name, $data->message) ||
+        empty(trim($data->email)) ||
+        empty(trim($data->name)) ||
+        empty(trim($data->message))
+    ) {
         http_response_code(400);
         echo json_encode([
             "success" => false,
-            "error" => "Ungültige Daten",
-            "raw" => $raw
+            "error" => "Ungültige Daten"
+        ]);
+        exit;
+    }
+
+    if (!filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
+        http_response_code(400);
+        echo json_encode([
+            "success" => false,
+            "error" => "Ungültige E-Mail-Adresse"
         ]);
         exit;
     }
@@ -49,6 +63,13 @@ try {
     }
 
     $mail = new PHPMailer(true);
+
+    // SMTP Debug ins Error-Log schreiben
+    $mail->SMTPDebug = 2;
+    $mail->Debugoutput = function ($str, $level) {
+        error_log("SMTP DEBUG [$level]: $str");
+    };
+
     $mail->isSMTP();
     $mail->Host = 'smtp-relay.brevo.com';
     $mail->SMTPAuth = true;
@@ -60,12 +81,12 @@ try {
     $mail->Timeout = 20;
 
     $mail->setFrom('noreply@info-jh.team', 'Website Kontakt');
-    $mail->addAddress('kontakt@ferchow-eugen.de');
-    $mail->addReplyTo($data->email, $data->name);
+    $mail->addAddress('kontakt@info-jh.team');
+    $mail->addReplyTo(trim($data->email), trim($data->name));
 
-    $safeName = htmlspecialchars($data->name, ENT_QUOTES, 'UTF-8');
-    $safeEmail = htmlspecialchars($data->email, ENT_QUOTES, 'UTF-8');
-    $safeMessage = nl2br(htmlspecialchars($data->message, ENT_QUOTES, 'UTF-8'));
+    $safeName = htmlspecialchars(trim($data->name), ENT_QUOTES, 'UTF-8');
+    $safeEmail = htmlspecialchars(trim($data->email), ENT_QUOTES, 'UTF-8');
+    $safeMessage = nl2br(htmlspecialchars(trim($data->message), ENT_QUOTES, 'UTF-8'));
 
     $mail->isHTML(true);
     $mail->Subject = 'Kontaktformular';
@@ -75,9 +96,9 @@ try {
         <strong>Nachricht:</strong><br>{$safeMessage}
     ";
     $mail->AltBody =
-        "Name: {$data->name}\n\n" .
-        "Email: {$data->email}\n\n" .
-        "Nachricht:\n{$data->message}";
+        "Name: " . trim($data->name) . "\n\n" .
+        "Email: " . trim($data->email) . "\n\n" .
+        "Nachricht:\n" . trim($data->message);
 
     $mail->send();
 
@@ -86,6 +107,8 @@ try {
         "message" => "Mail erfolgreich gesendet"
     ]);
 } catch (Throwable $e) {
+    error_log("MAIL ERROR: " . $e->getMessage());
+
     http_response_code(500);
     echo json_encode([
         "success" => false,
