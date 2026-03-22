@@ -45,4 +45,4 @@ jobs:
             ./sendmail.php root@178.104.47.231:/var/www/sites/info-jh/
 
       - name: Upload mail folder
-        run: rsync -avz src/mail/ user@server:/var/www/site/info-jh/mail/
+        run: rsync -avz src/mail/ root@178.104.47.231:/var/www/sites/info-jh/mail/
